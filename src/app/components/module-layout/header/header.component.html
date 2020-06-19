@@ -1,0 +1,48 @@
+<!-- <div class="container-fluid">
+    <div class="row header z-depth-2">
+        <div class="col logo valign-wrapper" fxHide.xs>
+            <i class="material-icons nombre">dashboard</i>
+            <span>GEOTRACK</span>
+        </div>
+        <div data-activates="slide-out" class="col boton valign-wrapper button-collapse" fxHide.sm fxHide.md fxHide.lg
+            fxHide.xl>
+            <mat-icon>menu</mat-icon>
+        </div>
+        <div class="col usuario valign-wrapper">
+            <i class="material-icons">person_pin</i>
+            <span>{{ usuario }}</span>
+        </div>
+        <a routerLink="/usuario" class="col opcion valign-wrapper">
+            <i class="material-icons">error</i>
+        </a>
+        <a routerLink="/login" class="col opcion valign-wrapper">
+            <i class="material-icons">person_pin</i>
+        </a>
+        <a routerLink="/configuracion" class="col opcion valign-wrapper">
+            <i class="material-icons">settings</i>
+        </a>
+    </div>
+</div> -->
+<div class="container">
+    <div (click)="display = true" class="menu">
+        <i class="pi pi-bars"></i>
+    </div>
+    <div class="logo">
+        <i class="pi pi-microsoft"></i>
+        <span>GEOTRACK</span>
+    </div>
+    <div class="usuario">
+        <i class="pi pi-user"></i>
+        <span>{{ usuario }}</span>
+    </div>
+    <div class="opciones">
+        <ul>
+            <li><a href=""><i class="pi pi-sign-in"></i></a></li>
+            <li><a href=""><i class="pi pi-map-marker"></i></a></li>
+            <li><a href=""><i class="pi pi-question-circle"></i></a></li>
+        </ul>
+    </div>
+</div>
+<p-sidebar [(visible)]="display" [style]="{width: '250px'}">
+    <app-menu></app-menu>
+</p-sidebar>
