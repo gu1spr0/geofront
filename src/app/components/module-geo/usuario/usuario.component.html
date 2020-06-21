@@ -136,8 +136,8 @@
                 <div class="botones">
                     <button type="submit" pButton icon="pi pi-save" label="Save" pButton
                         [disabled]="!validForm()"></button>
-                    <button type="button" pButton icon="pi pi-times" (click)="showDialog()" label="Delete"
-                        class="ui-button-danger" [disabled]="!selectedElement"></button>
+                    <!-- <button type="button" pButton icon="pi pi-times" (click)="showDialog()" label="Delete"
+                        class="ui-button-danger" [disabled]="!selectedElement"></button> -->
                     <button type="button" pButton icon="pi pi-replay" (click)="clean()" label="Cancel"
                         class="ui-button-warning"></button>
 
@@ -177,13 +177,20 @@
                             {{rowData[col.field]}}
                         </ng-template>
                     </td>
-                    <!-- <td style="width: 50px;">
-                        <button type="button" pButton icon="pi pi-times" (click)="eliminarUsuario(event)" label="Eliminar"
+                    <td style="width: 50px;">
+                        <button type="button" pButton icon="pi pi-times" (click)="displayDialog = true" label="Eliminar"
                             style="font-size: .8em"></button>
-                    </td> -->
+                    </td>
                 </tr>
             </ng-template>
         </p-table>
+        <p-tabView>
+            <p-tabPanel header="Usuarios" leftIcon="pi pi-users">
+            </p-tabPanel>
+            <p-tabPanel header="Personas" leftIcon="pi pi-user">
+            </p-tabPanel>
+        </p-tabView>
+
     </p-card>
 </div>
 

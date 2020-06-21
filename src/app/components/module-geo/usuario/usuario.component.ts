@@ -156,8 +156,8 @@ export class UsuarioComponent implements OnInit {
         }
       );
   }
-  public eliminarUsuario() {
-    this.usuarioService.eliminarUsuario(this.usuario.usuarioId)
+  public eliminarUsuario(usuarioDto: UsuarioDto) {
+    this.usuarioService.eliminarUsuario(usuarioDto.usuarioId)
       .subscribe(
         result => {
           this.addSingle('info', 'Eliminacion satisfactoria');
