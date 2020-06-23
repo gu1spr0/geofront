@@ -122,7 +122,16 @@
         }
     }
 }
-
+.contenedorImagen{
+    text-align: center;
+    #imgLogin{
+        width: 40%;
+    }
+}
+.ui-g-12{
+    padding: 0;
+    margin: 0;
+}
 @media only screen and (max-width: 599px){
     .container{
         .logo{

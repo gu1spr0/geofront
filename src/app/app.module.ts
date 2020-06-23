@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
@@ -18,7 +18,7 @@ import { VehiculoComponent } from './components/module-geo/vehiculo/vehiculo.com
 import { DepartamentoComponent } from './components/module-geo/configuracion/departamento/departamento.component';
 import { RolesComponent } from './components/module-geo/configuracion/roles/roles.component';
 import { routing, appRouteingProvider } from './routes/app.routing';
-import { UserComponent } from './components/module-layout/header/user/user.component';
+import { UserComponent } from './components/module-geo/usuario/user/user.component';
 import { PersonaService } from './services/persona.service';
 import { environment } from '../environments/environment';
 // Componentes formularios
@@ -43,6 +43,10 @@ import { UsuarioService } from './services/usuario.service';
 import { MessageService } from 'primeng/api';
 import { DepartamentoService } from './services/departamento.service';
 import { RolService } from './services/rol.service';
+import { PersonaComponent } from './components/module-geo/usuario/persona/persona.component';
+import { AuthService } from './services/auth.service';
+import { HelperService } from './services/helper.service';
+import { JwtInterceptor } from './helpers/jwt.interceptor';
 
 const config: SocketIoConfig = {
   url: environment.apiUrl, options: {}
@@ -64,6 +68,7 @@ const config: SocketIoConfig = {
     DepartamentoComponent,
     RolesComponent,
     UserComponent,
+    PersonaComponent,
   ],
   imports: [
     BrowserModule,
@@ -91,7 +96,9 @@ const config: SocketIoConfig = {
     InputTextareaModule,
     PasswordModule,
   ],
-  providers: [appRouteingProvider, PersonaService, UsuarioService, DepartamentoService, RolService, MessageService],
+  // tslint:disable-next-line: max-line-length
+  providers: [appRouteingProvider, PersonaService, UsuarioService, DepartamentoService, RolService, MessageService, AuthService, HelperService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

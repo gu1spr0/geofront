@@ -11,13 +11,28 @@ body{
     }
     .ui-table{
         font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
-        font-size: 10px !important;
+        font-size: 11px !important;
     }
     .ui-table-head{
         font-size: 11px;
     }
     input, textarea{
         font-size: 11px !important;
+    }
+    // button{
+    //     font-size: 0.8em !important;
+    //     margin: .5em !important;
+    //     padding: .5em 0 !important;
+    // }
+    #boton{
+        font-size: 0.8em !important;
+        margin: .5em !important;
+        padding: .5em 0 !important;
+    }
+    #op{
+        font-size: 0.8em !important;
+        margin: .5em !important;
+        padding: .5em 0 !important;
     }
     label{
         font-size: 11px !important;
@@ -38,5 +53,12 @@ body{
         height: auto;
         margin-bottom: 50px;
 
+    }
+    .ui-tabview-nav li a{
+        font-size: .8em !important;
+        font-weight: normal !important;
+    }
+    td{
+        padding: 0em .5em !important;
     }
 }
