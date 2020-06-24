@@ -39,7 +39,12 @@ p-dialog{
 }
 @media only screen and (max-width: 599px){
   .contMapa{
-    margin:0;
+    // overflow: hidden;
+    // position: relative;
+    // display: block;
+    margin: 0;
+    padding: 0;
+    height: 92.2vh;
     width: 100%;
   }
 }

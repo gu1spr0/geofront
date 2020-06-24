@@ -36,7 +36,6 @@ export class HomeComponent implements OnInit, AfterContentInit {
     };
     const bing = new bingTileLayer(options);
     L.marker([-16.6478, -68.2922]).addTo(this.map).bindPopup('Actual').openPopup();
-    L.control.scale().addTo(this.map);
     bing.addTo(this.map);
     carto.addTo(this.map);
   }

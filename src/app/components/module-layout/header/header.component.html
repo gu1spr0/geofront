@@ -24,7 +24,7 @@
 <p-sidebar [(visible)]="display" [style]="{width: '250px'}">
     <app-menu></app-menu>
 </p-sidebar>
-<p-dialog header=".::BIENVENIDO::." [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true"
+<p-dialog header=".::BIENVENIDO::." [(visible)]="displayDialog" [responsive]="false" showEffect="fade" [modal]="true"
     [style]="{width: '300px'}">
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
         <div class="ui-g ui-fluid">
