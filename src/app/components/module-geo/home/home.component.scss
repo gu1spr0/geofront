@@ -37,12 +37,32 @@
 //     }
 //   }
 // }
+@media only screen and (max-width: 320px){
+  .contMapa{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    height: 60vh !important;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 480px){
+  .contMapa{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    height: 93.2vh !important;
+    width: 100%;
+  }
+}
+
 @media only screen and (max-width: 599px){
   .contMapa{
     position: relative;
     margin: 0;
     padding: 0;
-    height: 100vh - 6.7vh;
+    height: 100vh - 6.7vh !important;
     width: 100%;
   }
 }
@@ -51,7 +71,7 @@
     position: relative;
     margin: 0;
     padding: 0;
-    height: 100vh - 5.3vh;
+    height: 100vh - 5.3vh !important;
     width: 100%;
   }
 }
