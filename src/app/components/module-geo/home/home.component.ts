@@ -45,7 +45,6 @@ export class HomeComponent implements OnInit, AfterContentInit {
       navigator.geolocation.getCurrentPosition(position => {
         this.latitud = position.coords.latitude;
         this.longitud = position.coords.longitude;
-        console.log('LAT: ' + this.latitud + '  LONG:' + this.longitud);
         this.map.panTo(new L.LatLng(this.latitud, this.longitud));
         L.marker([this.latitud, this.longitud]).addTo(this.map);
       });

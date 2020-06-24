@@ -215,6 +215,7 @@
             background-image: url(/assets/img/fondo.jpg);
             height: 100vh;
             overflow: auto;
+            z-index: 20;
         }
     }
 }
@@ -225,6 +226,7 @@
                 display: none;
             }
             .derecho{
+                border: 3px solid red;
                 margin: 0;
                 height: 100vh;
                 width: 100%;
