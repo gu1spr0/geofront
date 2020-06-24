@@ -61,4 +61,7 @@ body{
     td{
         padding: 0em .5em !important;
     }
+    .leaflet-control-attribution{
+        display: none;
+    }
 }
