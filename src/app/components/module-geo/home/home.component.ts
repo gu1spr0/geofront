@@ -2,6 +2,8 @@ import { Component, OnInit, AfterContentInit } from '@angular/core';
 import * as L from 'leaflet';
 import bingTileLayer from 'leaflet-bing-layer';
 import { WebsocketService } from '../../../services/websocket.service';
+import { MqttService, IMqttMessage } from 'ngx-mqtt';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,7 +14,15 @@ export class HomeComponent implements OnInit, AfterContentInit {
   ventanaLocalizacion = true;
   latitud = -16.6478;
   longitud = -68.2922;
-  constructor(public wsService: WebsocketService) {
+
+  private subscription: Subscription;
+  public message: any;
+  constructor(public wsService: WebsocketService, private mqttService: MqttService) {
+    this.subscription = this.mqttService.observe('LatLon').subscribe((message: IMqttMessage) => {
+      this.message = JSON.parse(message.payload.toString());
+      console.log(this.message);
+      L.marker([this.message.latitud, this.message.longitud]).addTo(this.map).bindPopup(this.message.sensorID).openPopup();
+    });
   }
   ngOnInit() {
   }
@@ -35,7 +45,7 @@ export class HomeComponent implements OnInit, AfterContentInit {
       maxZoom: 21
     };
     const bing = new bingTileLayer(options);
-    L.marker([-16.6478, -68.2922]).addTo(this.map).bindPopup('Actual').openPopup();
+
     bing.addTo(this.map);
     carto.addTo(this.map);
   }

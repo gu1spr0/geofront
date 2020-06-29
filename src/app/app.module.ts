@@ -47,9 +47,20 @@ import { PersonaComponent } from './components/module-geo/usuario/persona/person
 import { AuthService } from './services/auth.service';
 import { HelperService } from './services/helper.service';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
-
+//MQTT Service
+import { IMqttMessage, MqttModule, IMqttServiceOptions } from 'ngx-mqtt';
 const config: SocketIoConfig = {
   url: environment.apiUrl, options: {}
+};
+
+const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
+  hostname: '68.183.101.117',
+  connectOnCreate: true,
+  port: 8083,
+  path: '/mqtt',
+  username: 'guillermo',
+  password: 'Kuillerlearsi10+',
+  protocol: 'ws'
 };
 
 @NgModule({
@@ -78,6 +89,7 @@ const config: SocketIoConfig = {
     ReactiveFormsModule,
     HttpClientModule,
     SocketIoModule.forRoot(config),
+    MqttModule.forRoot(MQTT_SERVICE_OPTIONS),
     ButtonModule,
     MenubarModule,
     SidebarModule,
